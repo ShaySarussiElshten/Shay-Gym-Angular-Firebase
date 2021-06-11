@@ -1,0 +1,6 @@
+<section class="current-training" fxLayout="column" fxLayoutAlign="center center">
+    <mat-progress-bar class="example-margin" [value]="progress" style="width:50%"></mat-progress-bar>
+    <h1>{{ progress }}%</h1>
+    <p>Keep on going, you can do it!</p>
+    <button mat-raised-button color="accent" (click)="onStop()">Stop</button>
+</section>

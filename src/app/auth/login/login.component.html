@@ -1,0 +1,39 @@
+<section>
+  <mat-card fxFlex.xs="100%" fxFlex="400px">
+    <mat-card-content fxLayoutAlign="center">
+      <img src="https://assets.website-files.com/58e3d66b8ebcc6b458a002e1/59ae3a55052e560001d704e6_strength-equipment.png" alt="Girl in a jacket" width="320" height="280">
+    </mat-card-content>
+    
+  </mat-card>
+  
+  <form
+    fxLayout="column"
+    fxLayoutGap="10px"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Your email"
+        formControlName="email">
+      <mat-hint>Please enter a valid email.</mat-hint>
+      <mat-error>Invalid or missing email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Your password"
+        formControlName="password">
+      <mat-hint>Please enter your password.</mat-hint>
+      <mat-error>Missing password.</mat-error>
+    </mat-form-field>
+    <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</section>
+
+
+
+

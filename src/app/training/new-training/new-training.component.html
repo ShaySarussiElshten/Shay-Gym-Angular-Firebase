@@ -1,0 +1,75 @@
+<section class="new-training" fxLayout fxLayoutAlign="center">
+  <form (ngSubmit)="onStartTraining(f)" #f="ngForm">
+    <mat-card fxFlex.xs="100%" fxFlex="400px">
+      <mat-card-title fxLayoutAlign="center">Time to start a workout!</mat-card-title>
+      <mat-card-content fxLayoutAlign="center">
+        <mat-form-field *ngIf="!isLoading && exercises">
+          <mat-select placeholder="Choose Exercise" ngModel name="exercise" required>
+            <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">
+              {{ exercise.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center" *ngIf="!isLoading">
+        <button *ngIf="exercises" type="submit" mat-button [disabled]="f.invalid">Start</button>
+        <button *ngIf="!exercises" type="button" mat-button (click)="fetchExercises()">Fetch Again</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>
+
+
+<h1>My daily training program</h1>
+<p>The following exercises should be performed in this order:</p>
+<div class="masonry">
+  <div class="item">
+    <img src="https://cscottdesign.co.uk/wp-content/uploads/2014/07/Gym-GIF.gif">
+    <h3>1.running</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/f9/58/60/f95860b3811d8e80ed08dd2d7de4723d.gif">
+    <h3>2.Pushups</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/2a/71/d8/2a71d8e92b4b140356e3eb8b88ec457a.gif">
+    <h3>3.Horizontal bar</h3>
+  </div>
+  <div class="item">
+    <img src="https://cdn.dribbble.com/users/2259030/screenshots/5053278/jumpingrope-dribble.gif">
+    <h3>4.Jump rope</h3>
+  </div>
+  <div class="item">
+    <img src="https://cdn.dribbble.com/users/159027/screenshots/3847670/cycling-loop-dribbble.gif">
+    <h3>5.Stationary bicycles</h3>
+  </div>
+  <div class="item">
+    <img src="https://cdn.dribbble.com/users/398490/screenshots/2039177/bench_gif.gif">
+    <h3>6.Bench Press</h3>
+  </div>
+  <div class="item">
+    <img src="https://cdn.dribbble.com/users/787156/screenshots/3139749/untitled-4.gif">
+    <h3>7.Lat pull down</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/a2/c2/1c/a2c21cddcdffd7eb6c8259c06636299e.gif">
+    <h3>8.Shoulder press</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/76/92/a3/7692a31b4596ffa39b2a0b6430392870.gif">
+    <h3>9.row press</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/6f/8e/de/6f8ede4dab23b0518f0efc61e5810d71.gif">
+    <h3>10.Dips</h3>
+  </div>
+  <div class="item">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/db6b8a57570907.59e5e7ced65ea.gif">
+    <h3>11.Squats</h3>
+  </div>
+  <div class="item">
+    <img src="https://i.pinimg.com/originals/02/ea/0c/02ea0c9a354379eb6442e1655c5c2c38.gif">
+    <h3>12.Dead lifts</h3>
+  </div>
+</div>
